@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "*.html": "html"
+  },
+  "tailwindCSS.includeLanguages": {
+    "html": "html",
+    "plaintext": "html"
+  },
+  "tailwindCSS.experimental.configFile": "./tailwind.config.js",
+  "editor.quickSuggestions": { "strings": true }
+}
