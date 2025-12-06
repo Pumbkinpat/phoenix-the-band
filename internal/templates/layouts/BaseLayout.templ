@@ -1,0 +1,22 @@
+package layouts
+
+import (
+	"example.com/phoenix-the-band/internal/model"
+	"example.com/phoenix-the-band/internal/templates/pages"
+)
+
+templ BaseLayout(data *model.BandData) {
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>PHOENIX BAND</title>
+		<link rel="stylesheet" href="css/output.css">
+	</head>
+
+	<body class="scroll-mt-16">
+
+	@pages.HomePage(*data) 
+		
+	</body>
+</html>
+}

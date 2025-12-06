@@ -1,6 +1,12 @@
 ## How to run 
 
-- Check tailwind document for [tailwindcss standalone cli](https://tailwindcss.com/blog/standalone-cli) and download the latest executable file
-- Compile css file `./tailwindcss -i ./input.css -o ./public/output.css --watch` while hosting the project
+- Install latest tailwindcss standalone cli's executable file that suit your os
+```shell
+  curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download tailwindcss-macos-arm64
+  chmod +x tailwindcss-macos-arm64
+  mv tailwindcss-macos-arm64 tailwindcss
+``` 
+Check tailwind document for [tailwindcss standalone cli](https://tailwindcss.com/blog/standalone-cli)
 
->make sure to do both host and compile to see the latest changes while build website. Also if use if util classes include file path, make sure that file path relative to the output.css file
+- Gernerate css and go files `make watch -j2`
+- Build and run `make start`

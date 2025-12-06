@@ -4,7 +4,8 @@
   },
   "tailwindCSS.includeLanguages": {
     "html": "html",
-    "plaintext": "html"
+    "plaintext": "html",
+    "templ": "html"
   },
   "tailwindCSS.experimental.configFile": "./tailwind.config.js",
   "editor.quickSuggestions": { "strings": true }

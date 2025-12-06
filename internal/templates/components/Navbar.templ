@@ -1,0 +1,20 @@
+package components
+
+import (
+    "example.com/phoenix-the-band/internal/model"
+)
+
+templ Navbar(bandName string, navItems []model.NavItem) {
+    <!-- Navbar Component -->
+
+    <div class="fixed top-0 left-0 right-0 target:backdrop-blur-xl target:bg-black/35 z-20 bg-black text-white py-4">
+        <div class="px-6 flex justify-between items-center">
+            <div class="text-2xl font-bold uppercase">{ bandName } BAND</div>
+            <div class="space-x-8 text-sm">                
+                for _, item := range navItems {
+                    <a href={ templ.URL(item.Anchor) } class="hover:text-orange-400">{ item.Label }</a>
+                }
+            </div>
+        </div>
+    </div>
+}

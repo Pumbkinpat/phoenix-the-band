@@ -1,0 +1,257 @@
+{
+  "band": {
+    "name": "PHOENIX",
+    "phone": "0974468079",
+    "contact_person": "VIC",
+    "member_count": 6,
+    "genres": ["Ballad", "Pop", "Rock", "Disco", "Funk", "Dân Ca"],
+    "social_links": {
+      "facebook": "https://www.facebook.com/people/Phoenix-Band/61552410724607",
+      "youtube": "https://www.youtube.com/@Phoenix_Band",
+      "tiktok": "https://www.tiktok.com/@phoenixband2"
+    }
+  },
+  "hero": {
+    "title": "PHOENIX BAND",
+    "background_image": "./public/img/band/group-photo1.jpg"
+  },
+  "intro": {
+    "title": "ABOUT US",
+    "paragraphs": [
+      "\"Lời nói đầu tiên, Phoenix Band xin được chúc các đối tác thân yêu của mình thật nhiều sức khỏe và thật nhiều thành công trong những dự án sắp tới.",
+      "Phoenix Band được thành lập với những cá nhân có kinh nghiệm trong nghề nhiều năm. Tính đến thời điểm hiện tại, Phoenix đã hân hạnh được hợp tác và biểu diễn thành công rất nhiều chương trình từ các nhãn hàng.",
+      "Âm nhạc của chúng tôi luôn đem đến cho người nghe một không khí đầy tươi vui, sôi động, thoải mái, đôi lúc sẽ lắng đọng với những tâm sự chất chứa trong bài hát.",
+      "Với sự đa sắc màu trong phong cách làm việc của chúng tôi, những ca khúc tưởng chừng như bị lãng quên sẽ được hòa âm phối khí tỉ mỉ với nhạc cụ hiện đại để đem lại cho người nghe một làn gió đầy mới mẻ.",
+      "Thế mạnh của Phoenix Band chính là khả năng trình diễn đa thể loại như ballad, pop, rock, disco, funk và dân ca.\""
+    ],
+    "closing": "Rất hân hạnh được đồng hành cùng quý đối tác trong thời gian sắp tới!",
+    "images": [
+      "/public/img/band/group-photo1.jpg",
+      "/public/img/band/group-photo2.jpg"
+    ]
+  },
+  "members": [
+    {
+      "id": 1,
+      "name": "LÊ CÔNG DŨNG (VIC)",
+      "role": "VOCALIST - LEADER",
+      "image": "./public/img/band/member/member1.jpg",
+      "education": {
+        "school": "Nhạc Viện Thành Phố Hồ Chí Minh",
+        "majors": [
+          "Thanh Nhạc Cổ Điển (hệ Đại Học)"
+        ]
+      },
+      "description": "Đã tham gia biểu diễn tại các chương trình liên hoan âm nhạc, sự kiện, hội nghị, các tụ điểm Acoustic…",
+      "tv_shows": [
+        "Toả Sáng Bất Ngờ",
+        "Giọng Ải Giọng Ai (Mùa 5 Tập 2)",
+        "Một Số Chương Trình Của Nhà Đài VTV"
+      ],
+      "videos": [
+        {
+          "title": "XEM LÊ CÔNG DŨNG SONG CA CÙNG MIU LÊ TẠI \"GIỌNG ẢI GIỌNG AI\"",
+          "url": "https://www.youtube.com/watch?v=088cOnjdorI&list=RD088cOnjdorI&start_radio=1"
+        },
+        {
+          "title": "\"RU EM\" ĐƯỢC TRÌNH BÀY BỞI LÊ CÔNG DŨNG",
+          "url": "https://www.youtube.com/watch?v=pSLztPCQfG4&list=RDpSLztPCQfG4&start_radio=1"
+        },
+        {
+          "title": "\"XUÂN XA NHÀ\" BỞI LÊ CÔNG DŨNG",
+          "url": "https://www.youtube.com/watch?v=cyMZbggAaAA&list=RDcyMZbggAaAA&start_radio=1"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "THẢO PHẠM",
+      "role": "VOCALIST",
+      "image": "./public/img/band/member/member2.jpg",
+      "education": {
+        "school": "Nhạc Viện Thành Phố Hồ Chí Minh",
+        "majors": [
+          "Thanh Nhạc Cổ Điển (Trung cấp 4 năm)",
+          "Sư Phạm Âm Nhạc (hệ Đại Học)"
+        ]
+      },
+      "description": "Đã tham gia biểu diễn tại các chương trình liên hoan âm nhạc, sự kiện, hội nghị, các giải golf, các tụ điểm Acoustic...",
+      "tv_shows": [
+        "Đấu trường âm nhạc THVL (Mùa 4 tập 3)",
+        "Ca sĩ bí ẩn HTV7 (Mùa 6 tập 1)",
+        "Sàn chiến giọng hát VTV3 (Mùa 5 tập 9)"
+      ],
+      "videos": [
+        {
+          "title": "\"XUÂN 26\" COVER BỞI THẢO PHẠM",
+          "url": "#"
+        },
+        {
+          "title": "\"MỘT MÌNH\" BỞI THẢO PHẠM",
+          "url": "#"
+        },
+        {
+          "title": "\"KHÓC BẠN TRĂM NĂM\" BỞI THẢO PHẠM",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "THẢO UYÊN (KYLIE NG)",
+      "role": "VOCALIST",
+      "image": "./public/img/band/member/member3.jpg",
+      "education": {
+        "school": "Nhạc Viện Thành Phố Hồ Chí Minh",
+        "majors":["Thanh Nhạc - Nhạc Nhẹ (hệ Đại Học)"],
+        "genres": ["R&B", "Pop", "Rock"]
+      },
+      "description": "Đã tham gia các sự kiện lớn nhỏ, hội nghị, sân golf, cộng tác với nhiều nhãn hàng lớn nhỏ khác nhau.",
+      "special_skill": "Hơn thế nữa, Uyên cũng có thể hát và giao tiếp lưu loát bằng tiếng anh trong các sự kiện."
+    },
+    {
+      "id": 4,
+      "name": "HẢI LONG",
+      "role": "DRUMMER",
+      "image": "./public/img/band/member/member4.jpg",
+      "description": "Là một cá nhân bùng nổ với những bản Pop, Rock, Ballad mang nhịp trống mạnh mẽ sôi động, khuấy động sân khấu; đồng thời lắng lại thật ngọt ngào trong những bản ballad tình ca đầy cảm xúc."
+    },
+    {
+      "id": 5,
+      "name": "NGUYỄN ANH DŨNG",
+      "role": "GUITARIST",
+      "image": "./public/img/band/member/member5.jpg",
+      "description": "Sở hữu phong thái tự tin và đầy lửa, luôn khiến sân khấu bừng lên ngay từ những hợp âm đầu tiên. Anh Dũng gây ấn tượng bằng kỹ thuật Guitar chắc chắn, cảm xúc rõ nét và nguồn năng lượng điện đầy cuốn hút. Với anh, Guitar không chỉ là âm nhạc mà là cách kể những câu chuyện riêng, mạnh mẽ và chân thật."
+    },
+    {
+      "id": 6,
+      "name": "ĐINH LÂM HÙNG THẮNG",
+      "role": "KEYBOARDIST",
+      "image": "./public/img/band/member/member6.jpg",
+      "description": "Với vai trò là Keyboardist của nhóm, anh tạo nên những giai điệu hoa mỹ và giàu sắc thái, được mài giũa qua nhiều năm biểu diễn ở các sân khấu lớn nhỏ. Kỹ thuật tốt kết hợp với tư duy sáng tạo giúp anh linh hoạt trong từng đoạn hòa âm, luôn biết cách làm đầy không gian và nâng cảm xúc của bài hát."
+    }
+  ],
+  "partners": {
+    "title": "CÁC NHÃN HÀNG ĐÃ HỢP TÁC",
+    "logos": [
+      "./public/img/partner/1.png",
+      "./public/img/partner/2.png",
+      "./public/img/partner/3.png",
+      "./public/img/partner/4.png",
+      "./public/img/partner/5.png",
+      "./public/img/partner/6.png",
+      "./public/img/partner/7.png",
+      "./public/img/partner/8.png",
+      "./public/img/partner/9.png",
+      "./public/img/partner/10.png",
+      "./public/img/partner/11.png",
+      "./public/img/partner/12.png",
+      "./public/img/partner/13.png",
+      "./public/img/partner/14.png",
+      "./public/img/partner/15.png",
+      "./public/img/partner/16.png",
+      "./public/img/partner/17.png",
+      "./public/img/partner/18.png",
+      "./public/img/partner/19.png",
+      "./public/img/partner/20.png",
+      "./public/img/partner/21.png",
+      "./public/img/partner/22.png",
+      "./public/img/partner/23.png",
+      "./public/img/partner/24.png"
+    ],
+    "featured": [
+      {
+        "name": "7UP",
+        "background_image": "/public/img/hero-1.gif"
+      },
+      {
+        "name": "HELEN HOUSE COFFEE",
+        "background_image": "/public/img/hero-2.gif"
+      },
+      {
+        "name": "SỰ KIỆN TẠI VINWONDER",
+        "background_image": "/public/img/hero-3.gif"
+      },
+      {
+        "name": "KOKO COFFEE",
+        "background_image": "/public/img/hero-4.gif"
+      }
+    ]
+  },
+  "events": {
+    "title": "HÌNH ẢNH TẠI CÁC SỰ KIỆN TIÊU BIỂU",
+    "featured_events": [
+      {
+        "name": "SỰ KIỆN BỞI OMO",
+        "image": "./public/img/event/1.jpg"
+      },
+      {
+        "name": "SỰ KIỆN BỞI VINHOMES",
+        "image": "./public/img/event/2.jpg"
+      },
+      {
+        "name": "SỰ KIỆN BỞI CELLPHONES",
+        "image": "./public/img/event/3.jpg"
+      },
+      {
+        "name": "SỰ KIỆN BỞI HEINEKEN",
+        "image": "./public/img/event/4.jpg"
+      }
+    ],
+    "other_events_title": "CÁC SỰ KIỆN KHÁC",
+    "other_events_images": [
+      "./public/img/event/5.jpg",
+      "./public/img/event/6.jpg",
+      "./public/img/event/7.jpg",
+      "./public/img/event/8.jpg",
+      "./public/img/event/9.jpg",
+      "./public/img/event/10.jpg"
+    ]
+  },
+  "performance_videos": {
+    "title": "CÁC VIDEOS BIỂU DIỄN",
+    "videos": [
+      {
+        "id": 1,
+        "youtube_embed_url": "https://www.youtube.com/embed/17ltfefbnZo"
+      },
+      {
+        "id": 2,
+        "youtube_embed_url": "https://www.youtube.com/embed/ExH9UQAr4KM"
+      },
+      {
+        "id": 3,
+        "youtube_embed_url": "https://www.youtube.com/embed/NgOCa3RKKVU"
+      },
+      {
+        "id": 4,
+        "youtube_embed_url": "https://www.youtube.com/embed/l1XDVwYHuhI"
+      },
+      {
+        "id": 5,
+        "youtube_embed_url": "https://www.youtube.com/embed/9ZO1-03hcnc"
+      },
+      {
+        "id": 6,
+        "youtube_embed_url": "https://www.youtube.com/embed/GLn_cSgpC40"
+      }
+    ]
+  },
+  "navigation": [
+    {
+      "label": "ABOUT",
+      "anchor": "#intro"
+    },
+    {
+      "label": "MEMBER",
+      "anchor": "#members"
+    },
+    {
+      "label": "EVENT",
+      "anchor": "#events"
+    }
+  ],
+  "footer": {
+    "copyright": "© 2024 Phoenix Band. All rights reserved."
+  }
+}
