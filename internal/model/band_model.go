@@ -13,18 +13,18 @@ type BandData struct {
 }
 
 type Band struct {
-	Name          string      `json:"name"`
-	Phone         string      `json:"phone"`
-	ContactPerson string      `json:"contact_person"`
-	MemberCount   int         `json:"member_count"`
-	Genres        []string    `json:"genres"`
-	SocialLinks   SocialLinks `json:"social_links"`
+	Name          string       `json:"name"`
+	Phone         string       `json:"phone"`
+	ContactPerson string       `json:"contact_person"`
+	MemberCount   int          `json:"member_count"`
+	Genres        []string     `json:"genres"`
+	SocialLinks   []SocialLink `json:"social_links"`
 }
 
-type SocialLinks struct {
-	Facebook string `json:"facebook"`
-	Youtube  string `json:"youtube"`
-	Tiktok   string `json:"tiktok"`
+type SocialLink struct {
+	Platform      string `json:"platform"`
+	SocialLinkURL string `json:"social_link_url"`
+	Logo          string `json:"logo"`
 }
 
 type Hero struct {
@@ -40,15 +40,16 @@ type Intro struct {
 }
 
 type Member struct {
-	ID           int       `json:"id"`
-	Name         string    `json:"name"`
-	Role         string    `json:"role"`
-	Image        string    `json:"image"`
-	Education    Education `json:"education,omitempty"`
-	Description  string    `json:"description"`
-	TVShows      []string  `json:"tv_shows,omitempty"`
-	Videos       []Video   `json:"videos,omitempty"`
-	SpecialSkill string    `json:"special_skill,omitempty"`
+	ID            int            `json:"id"`
+	Name          string         `json:"name"`
+	Role          string         `json:"role"`
+	Image         string         `json:"image"`
+	Education     Education      `json:"education,omitempty"`
+	Description   string         `json:"description"`
+	TVShows       []string       `json:"tv_shows,omitempty"`
+	YoutubeVideos []YoutubeVideo `json:"youtube_videos,omitempty"`
+	SpecialSkill  string         `json:"special_skill,omitempty"`
+	TotalSlides   int            `json:"total_slides"`
 }
 
 type Education struct {
@@ -57,7 +58,7 @@ type Education struct {
 	Genres []string `json:"genres,omitempty"`
 }
 
-type Video struct {
+type YoutubeVideo struct {
 	Title string `json:"title"`
 	URL   string `json:"url"`
 }
@@ -87,12 +88,13 @@ type FeaturedEvent struct {
 
 type PerformanceVideos struct {
 	Title  string             `json:"title"`
-	Videos []PerformanceVideo `json:"videos"`
+	Videos []PerformanceVideo `json:"youtube_videos"`
 }
 
 type PerformanceVideo struct {
-	ID              int    `json:"id"`
-	YoutubeEmbedURL string `json:"youtube_embed_url"`
+	ID       int    `json:"id"`
+	Title    string `json:"title"`
+	EmbedURL string `json:"embed_url"`
 }
 
 type NavItem struct {

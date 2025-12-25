@@ -1,0 +1,25 @@
+package components
+
+import "fmt"
+
+templ InfiniteCarousel(logos []string, duration int) {
+  <!-- Infinite carousel -->
+  <div class="flex overflow-hidden grayscale-[100%] mask-x-from-70% mask-x-to-90%)]">
+    @scrollWrapper(logos, duration)
+    @scrollWrapper(logos, duration)
+  </div>  
+}
+
+templ scrollWrapper(data []string, duration int) {
+  <!-- Scroll wrapper -->
+  <ul 
+    class="flex gap-10 items-center justify-center md:justify-start min-w-full shrink-0 animate-infinite-scroll"
+    style={ fmt.Sprintf("animation-duration: %ds;", duration) }
+  >
+    for _, imageURL := range data {
+      <li class="shrink-0 grow flex place-content-center min-w-0">
+        <img src={ templ.URL(imageURL) } alt="" class="w-auto h-20 md:h-32 m-auto object-contain"/>
+      </li>
+    }
+  </ul>
+}
