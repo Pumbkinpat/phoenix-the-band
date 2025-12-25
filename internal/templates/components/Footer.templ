@@ -1,9 +1,45 @@
 package components
 
-templ Footer() {
+import (
+    "github.com/phoenix-the-band/internal/model"
+)
+
+templ Footer(data model.BandData) {
   <!-- Footer Component -->
 
-  <div class="bg-black text-gray-400 py-6 text-center text-sm">
-      <p>© 2024 Phoenix Band. All rights reserved.</p>
+  <!-- LEFT: Brand Mark Logo -->
+  <div class="footer sm:footer-horizontal z-30 bg-neutral text-neutral-content p-10">
+    <aside>
+      @Icon("logo", "text-white", "fill-current", "w-16", "h-16")
+      <p>
+        PHOENIX BAND
+        <br />
+        © 2024 Phoenix Band. All rights reserved.
+      </p>
+    </aside>
+
+    <!-- MIDDLE: Links -->
+    <nav class="place-self-center self-center">
+      <h6 class="footer-title">Links</h6>
+      <div class="flex justify-center gap-2">
+        for _, navItem := range data.Navigation {
+          <a href={ templ.URL(navItem.Anchor) } class="link link-hover">
+            { navItem.Label }
+          </a>
+        }
+      </div>
+    </nav>
+
+    <!-- RIGHT: Social Medias -->
+    <nav class="place-self-end self-center">
+      <h6 class="footer-title">Social Medias</h6>
+      <div class="flex justify-center gap-2">
+        for _,item := range data.Band.SocialLinks {
+          <a href={ templ.URL(item.SocialLinkURL) } target="_blank" class="space-x-2">
+            @Icon(item.Platform, "inline","text-base", "fill-current", "w-auto", "h-6")
+          </a>
+        }
+       </div> 
+    </nav>
   </div>
 }

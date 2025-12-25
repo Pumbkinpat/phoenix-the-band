@@ -1,4 +1,4 @@
-module example.com/phoenix-the-band
+module github.com/phoenix-the-band
 
 go 1.24.1
 

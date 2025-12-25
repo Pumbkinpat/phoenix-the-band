@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"os"
 
-	"example.com/phoenix-the-band/internal/model"
+	"github.com/phoenix-the-band/internal/model"
 )
 
 func LoadBandData(filepath string) (*model.BandData, error) {

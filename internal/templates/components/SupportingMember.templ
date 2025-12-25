@@ -1,0 +1,39 @@
+package components
+
+import (
+  "github.com/phoenix-the-band/internal/model"
+)
+
+templ SupportingMember(data model.Member) {
+  <div class="">
+    <div class="card bg-base-100 w-80 p-1 shadow-sm">
+      <!-- TOP: Card Avatar -->
+      <figure>
+        <div class="avatar p-3">
+          <div class="w-full rounded-lg">
+            <img src={ templ.URL(data.Image) } alt="other members"/>
+          </div>
+        </div>
+      </figure>
+
+      <!-- BOTTOM: Card Info -->
+      <div class="card-body p-4">
+        <h3 class="text-2xl font-bold text-center text-nowrap">{ data.Name }</h3>
+        <div class="badge badge-outline badge-info mx-auto">{ data.Role }</div>
+        <p class="text-gray-300 text-sm text-justify leading-relaxed">
+          <span class="align-top">{ data.Description }</span>
+        </p>
+      </div>
+    </div>
+
+      <!-- 8 empty divs needed for the 3D effect -->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+}

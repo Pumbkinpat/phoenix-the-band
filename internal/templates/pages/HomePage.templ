@@ -1,177 +1,234 @@
 package pages
 
 import (
-  "strings"
 
-  "example.com/phoenix-the-band/internal/model"
-  "example.com/phoenix-the-band/internal/templates/components"
+  "github.com/phoenix-the-band/internal/model"
+  "github.com/phoenix-the-band/internal/templates/layouts"
+	"github.com/phoenix-the-band/internal/templates/components"
 )
 
-templ HomePage(data model.BandData ) {
-  <div id="container">
-    <!-- Header -->
-    <div id="header">
-      @components.Navbar(data.Band.Name, data.Navigation)
-    </div>
+templ HomePage(data *model.BandData ) {
+  @layouts.BaseLayout(*data) {
+    <div id="container" class="pl-[5.375rem]">
 
-    <!-- Hero -->
-    <div id="hero">
-      <div class="h-96 relative text-white bg-[url('/public/img/band/group-photo1.jpg')] bg-no-repeat bg-[0%_30%] bg-cover">
-        <div class="w-[100%] h-[100%] absolute top-0 left-0 flex place-items-center text-center bg-black/25">
-          <h1 class="text-7xl font-bold uppercase mx-auto">{ data.Band.Name } BAND</h1>
-        </div>
-      </div>
-    </div>
+      <!-- Navbar -->
+      @components.Navbar(data.Band.Name, *data)
 
-    <!-- Intro Section -->
-    <div id="intro">
-      <div class="max-w-screen mx-auto p-6 bg-[rgb(242,242,242,1)] flex gap-10 shrink-0">
-        <div class="w-[55%] text-left mb-12">
-          <h2 class="text-4xl text-center text-nowrap font-bold text-gray-900 mb-4">{ data.Intro.Title }</h2>
-          
-          <p class="mb-4"><span class="font-bold">Tên Band Nhạc: </span>{ data.Band.Name }</p>
-          <p class="mb-4"><span class="font-bold">Thể Loại: </span>{ strings.Join(data.Band.Genres[0:4], ", ") } và Dân ca</p>
-          <p class="mb-4"><span class="font-bold">Số lượng Thành Viên: </span>{ data.Band.MemberCount }</p>
-          <p class="mb-4"><span class="font-bold">Số Điện Thoại liên lạc: </span> { data.Band.Phone } ({ data.Band.ContactPerson })</p>
+      <div id="page" class="">
+        <!-- Header -->
 
-          <div class="bg-black/80 text-white text-center mb-4 rounded-sm p-1 outline-[1px] outline-transparent hover:outline-white hover:shadow-sm">
-            <a href={ templ.URL(data.Band.SocialLinks.Facebook) }></a>
-            TRANG FACEBOOK CỦA BAND
-          </div>
+        <!-- Hero -->
+        <div class="hero z-15">
+          <img src="/public/img/band/group-photo1.jpg" class="bg-black/15 w-full object-cover"/>
 
-          <div class="bg-black/80 text-white text-center mb-4 rounded-sm p-1 outline-[1px] outline-transparent hover:outline-white hover:shadow-sm">
-            <a href={ templ.URL(data.Band.SocialLinks.Youtube) }></a>
-            XEM CÁC VIDEO TRÊN KÊNH YOUTUBE
-          </div>
+          <div class="relative w-[80%] h-[80vh] mx-auto border-[3px] border-white">
 
-          <div class="bg-black/80 text-white text-center mb-4 rounded-sm p-1 outline-[1px] outline-transparent hover:outline-white hover:shadow-sm">
-            <a href={ templ.URL(data.Band.SocialLinks.Tiktok) }></a>
-            XEM CÁC VIDEO TRÊN KÊNH TIKTOK
-          </div>
-          
-          for _, item := range data.Intro.Paragraphs {
-            <p class="mb-6">{ item }</p>
-          }
-
-          <p class="mt-12 italic">{ data.Intro.Closing }</p>
-        </div>
-          
-        <div class="space-y-6 text-lg text-gray-700 leading-relaxed">
-          <img src={ templ.URL(data.Intro.Images[0]) } alt="" srcset="" class="block object-contain">
-          <img src={ templ.URL(data.Intro.Images[1]) } alt="" srcset="" class="block object-contain">
-        </div>
-      </div>
-    </div> 
-
-    <!-- Members Section -->
-    @components.Divider("Thành Viên")
-
-    <div id="members" class="">
-      <div class="max-w-6xl mx-auto px-6 py-6">
-
-        <!-- Member -->
-        @components.Member(data.Members[0])
-        @components.Member(data.Members[1])
-        @components.Member(data.Members[2])
-
-        <!-- Other members -->
-        <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-4 place-items-center">
-
-          @components.OtherMember(data.Members[3])
-          @components.OtherMember(data.Members[4])
-          @components.OtherMember(data.Members[5])
-
-        </div>
-      </div>
-    </div>
-
-    <!-- Partners Section -->
-    @components.Divider(data.Partners.Title)
-
-    <div id="partners" class="">
-      <div class="">
-        <div class="px-32 py-4">
-          <div class="mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-
-            for _, item := range data.Partners.Logos {
-              <img src={ templ.URL(item) } alt="" srcset=""/>
-            }
-
-          </div>
-        </div>
-
-        <div class="">
-
-          for _, item := range data.Partners.Featured {
-            <div class="h-44 flex justify-center items-center overflow-hidden">
-              <img src={ item.BackgroundImage } class="block w-[100%] h-auto"/>
-              <p class="absolute m-auto text-3xl text-white font-bold">{ item.Name }</p>
+            <!-- Top: Slogan -->
+            <div class="absolute top-[55%] left-[50%] translate-x-[-50%] font-bold text-center">
+              <p class="mx-auto text-6xl text-center text-white">WHERE SOUND</p>
+              <p class="w-[44rem] mx-auto text-6xl text-center text-warning">BECOMES FEELING</p>
             </div>
-          } 
 
+            <!-- Middle: 2 Buttons -->
+            <div class="absolute left-[50%] bottom-20 translate-x-[-50%] flex gap-3 text-center">
+              <button class="btn btn-xl btn-neutral bg-black/70 rounded-none">
+                <img src="./public/icon/play-icon.svg" class="w-9 h-9 text-white object-cover"/>
+                <span class="text-2xl text-center text-white">LISTEN NOW</span>
+              </button>
+
+              <button class="btn btn-outline btn-xl outline-white rounded-none hover:glass hover:border-[1px]">
+                <span class="text-2xl text-center text-white">Discover our story</span>
+              </button>
+            </div>
+
+            <!-- Bottom: Down arrow -->
+            <img src="./public/icon/arrow-down.png" class="absolute left-[50%] bottom-2 w-[48px] h-[48px] translate-x-[-50%] object-cover"/>
+            
+          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- Events Section -->
-    @components.Divider(data.Events.Title)
+        <!-- Intro Section -->
+        <div id="intro">
+          @components.Divider("intro", "ABOUT US", "OUR STORY")
 
-    <div id="events" class="">
-      <div>
-        <div class="px-10 py-4">
-          <div class="mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-3 [&>img]:w-12">
+          <div class="text-xl text-justify p-6 md:py-6 md:px-20 lg:px-44 xl:px-[22%]">
+            <div>
+              <!-- TOP -->
+              <p class="">
+                <span class="
+                  relative 
+                  before:block before:absolute
+                  before:-top-[50%] before:-left-4
+                  before:content-['“'] before:text-white
+                  before:text-3xl before:font-bold"
+                >
+                  { data.Intro.Paragraphs[0] }
+                </span>
+                <br /><br />
+                <span>{ data.Intro.Paragraphs[1] }</span>
+              </p>
 
-            for _, item := range data.Events.FeaturedEvents {
-              <div>
-                <img src={ templ.URL(item.Image) } alt="" class="mb-4">
-                <p class="font-bold text-center">{ item.Name }</p>
+              <!-- MIDDLE: Band Photo -->
+              <img src="/public/img/band/group-photo2.jpg" class="block my-6 mx-auto object-cover" />
+
+              <!-- BOTTOM -->
+              <p>
+                <span>{ data.Intro.Paragraphs[2] }</span>
+                <span>{ data.Intro.Paragraphs[3] }</span>
+                <span class="
+                  after:inline-block after:ml-2
+                  after:content-['”'] after:text-white 
+                  after:text-3xl after:font-bold"
+                >
+                  { data.Intro.Paragraphs[4] }
+                </span>
+              </p>
+              <br /><br /><br />
+              <p class="">{ data.Intro.Closing }</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Members Section -->
+        <div id="members">
+          @components.Divider("members", "MEMBERS", "MEET THE BAND")
+
+          @components.Members(*data)
+        </div>
+
+        <!-- Partners Section -->
+        <div id="partners">
+          @components.Divider("partners", "PARTNERS", "FEATURED BRANDS")
+        
+          @components.InfiniteCarousel(data.Partners.Logos[0:9], 25)
+          @components.InfiniteCarousel(data.Partners.Logos[9:17], 38)
+          @components.InfiniteCarousel(data.Partners.Logos[17:24], 30)
+        </div>
+
+        <!-- Events Section -->
+        <div id="events" class="">
+          @components.Divider("events", "EVENTS GALLERY", "BEHIND THE SCENES")
+
+          <div class="columns-2 md:columns-3 gap-4 p-6 md:py-6 md:px-20 lg:px-44 xl:px-[22%]">
+            for  _, imageURL := range data.Events.OtherEventsImages {
+              <div class="mb-4 break-inside-avoid">
+                <img src={ templ.URL(imageURL) } class=" w-full object-cover hover:opacity-80 transition" />
+              </div>
+            }
+          </div>
+        </div>
+
+        <!-- Performance section -->
+        @components.Divider("performance-videos", "PERFORMACE VIDEOS", "LISTEN & WATCH")
+
+        /* <div id="performance-videos">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-8 md:px-10 xl:px-32 py-4">
+            // note: something wrong with the youtube embed link causing warning in dev tool console tab
+
+            for _, item := range data.PerformanceVideos.Videos {
+              <div class="w-full aspect-video">
+                    <!-- Your standard YouTube iframe embed code goes here -->
+                    <iframe class="w-full h-full" src={ templ.URL(item.EmbedURL) } allowfullscreen></iframe>
               </div>
             } 
 
           </div>
-        </div>
+        </div> */
+        
+        <div id="contact" class="flex flex-col place-items-center h-screen pb-8 px-8">
+          @components.Divider("contact", "CONTACT US", "SEND US A MESSAGE")
 
-        @components.Divider(data.Events.OtherEventsTitle)
+          <fieldset class="fieldset bg-base-200 border-base-300 rounded-box border w-lg p-4">
+            <!-- TOP: Form Title -->
+            <legend class="fieldset-legend">Contact Us</legend>
+            
+            <!-- MIDDLE: Select Field -->
+            <label for="inquiry" class="label">Inquiry Type</label>
+            <select id="inquiry" class="select w-full">
+              <option disabled selected>Pick a type</option>
+              <option>Venue Booking</option>
+              <option>Festival Apperance</option>
+              <option>Press & Media</option>
+              <option>Collaboration</option>
+              <option>General Inquiry</option>
+            </select> 
 
-        <div class="p-4">
-          <div class="mx-auto">
-
-            for i := 0; i < 2; i++ {
-              <div class="flex gap-4 mb-5">
-                <div>
-                  <img src={ templ.URL(data.Events.OtherEventsImages[i]) } alt="" class="mb-4">
-                  <img src={ templ.URL(data.Events.OtherEventsImages[i + 1]) } alt="">
-                </div>
-
-                <div>
-                  <img src={ templ.URL(data.Events.OtherEventsImages[i + 2]) } alt="">
-                </div>
+            <!-- MIDDLE: Join Text Input Field -->
+            <div class="grid md:grid-cols-2 gap-2 w-full">
+              <div class="">
+                <label for="firstName" class="label">First Name</label>
+                <input type="text" id="firstName" class="input join-item" placeholder="John"/>            
               </div>
-            } 
 
-          </div>
+              <div class="">
+                <label for="lastName" class="label">Last Name</label>
+                <input type="text" id="lastName" class="input join-item" placeholder="Doe">
+              </div>
+            </div>
+
+            <!-- MIDDLE: Join Text Input Field -->
+            <div class="grid md:grid-cols-2 gap-2 w-full">
+              <div class="">
+                <label for="emailAddress" class="label">Email Address</label>
+                <input type="email" id="emailAddress" class="input" placeholder="john@github.com"/>
+              </div>
+              
+              <div class="">
+                <label for="phoneNumber" class="label">Phone Number</label>
+                <input type="text" id="phoneNumber" class="input" placeholder="+1 (555) 000-0000"/>
+              </div>
+            </div>
+
+            <!-- MIDDLE: Text Input Field -->
+            <label for="organizationVenue" class="label">Organization/Venue</label>
+            <input type="text" id="organizationVenue" class="input w-full" placeholder="Your venue or organization name"/>
+
+            <!-- MIDDLE: Text Area -->
+            <label for="message" class="label">Message</label>
+            <textarea id="message" class="textarea w-full" placeholder="Tell us about your inquiry..."></textarea>
+
+            <!-- BOTTOM: Subcribe Button -->
+            <div class="join gap-2">
+              <input type="checkbox" id="newsletter" class="checkbox" />
+              <label for="newsletter" class="label">Subscribe to our newsletter</label>
+            </div>
+
+            <button class="btn btn-neutral mt-4">Send</button>
+          </fieldset>
         </div>
       </div>
-    </div>
 
-    <!-- Performance section -->
-    @components.Divider(data.PerformanceVideos.Title)
-
-    <div id="performance-videos">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-8 md:px-10 xl:px-32 py-4">
-
-        for _, item := range data.PerformanceVideos.Videos {
-          <div class="w-full aspect-video">
-            <iframe class="w-full h-full" src={ templ.URL(item.YoutubeEmbedURL) } title="…" allowfullscreen></iframe>
-          </div>
-        } 
-
+      <!-- Footer section -->
+      <div id="footer">
+        @components.Footer(*data)
       </div>
     </div>
+  }
 
-    <!-- Footer section -->
-    <div id="footer">
-      @components.Footer()
-    </div>
-  </div>
+  <script defer>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const wrapper = document.getElementById('membersWrapper');
+    const slides = gsap.utils.toArray('.member-slide');
+    const container = document.getElementById('pinnedContainer');
+
+    // Logic: Move the wrapper up by (Number of Slides - 1) * 100%
+    // We trigger when the divider hits the top of the viewport
+
+
+    gsap.to(wrapper, {
+      yPercent: -(100 * (slides.length - 1)),
+      ease: "none",
+      delay: 1,
+      scrollTrigger: {
+        trigger: "#divider-members", // Trigger starts when this hits the top
+        start: "top top", 
+        end: "+=300%",               // How long the user has to scroll
+        pin: "#members",             // Pin the parent section
+        scrub: 1,
+        anticipatePin: 1,
+        markers: false               // Set to true for debugging
+      }
+    });
+  </script>
 }

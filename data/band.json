@@ -5,11 +5,23 @@
     "contact_person": "VIC",
     "member_count": 6,
     "genres": ["Ballad", "Pop", "Rock", "Disco", "Funk", "Dân Ca"],
-    "social_links": {
-      "facebook": "https://www.facebook.com/people/Phoenix-Band/61552410724607",
-      "youtube": "https://www.youtube.com/@Phoenix_Band",
-      "tiktok": "https://www.tiktok.com/@phoenixband2"
-    }
+    "social_links": [
+      {
+        "platform": "youtube",
+        "logo": "./public/icon/social-media/youtube-icon.svg",
+        "social_link_url": "https://www.youtube.com/@Phoenix_Band"
+      },
+      {
+        "platform": "facebook",
+        "logo": "./public/icon/social-media/facebook-icon.svg",
+        "social_link_url": "https://www.facebook.com/people/Phoenix-Band/61552410724607"
+      },
+      {
+        "platform": "tiktok",
+        "logo": "./public/icon/social-media/tiktok-icon.svg",
+        "social_link_url": "https://www.tiktok.com/@phoenixband2"
+      }
+    ]
   },
   "hero": {
     "title": "PHOENIX BAND",
@@ -18,11 +30,11 @@
   "intro": {
     "title": "ABOUT US",
     "paragraphs": [
-      "\"Lời nói đầu tiên, Phoenix Band xin được chúc các đối tác thân yêu của mình thật nhiều sức khỏe và thật nhiều thành công trong những dự án sắp tới.",
+      "Lời nói đầu tiên, Phoenix Band xin được chúc các đối tác thân yêu của mình thật nhiều sức khỏe và thật nhiều thành công trong những dự án sắp tới.",
       "Phoenix Band được thành lập với những cá nhân có kinh nghiệm trong nghề nhiều năm. Tính đến thời điểm hiện tại, Phoenix đã hân hạnh được hợp tác và biểu diễn thành công rất nhiều chương trình từ các nhãn hàng.",
       "Âm nhạc của chúng tôi luôn đem đến cho người nghe một không khí đầy tươi vui, sôi động, thoải mái, đôi lúc sẽ lắng đọng với những tâm sự chất chứa trong bài hát.",
       "Với sự đa sắc màu trong phong cách làm việc của chúng tôi, những ca khúc tưởng chừng như bị lãng quên sẽ được hòa âm phối khí tỉ mỉ với nhạc cụ hiện đại để đem lại cho người nghe một làn gió đầy mới mẻ.",
-      "Thế mạnh của Phoenix Band chính là khả năng trình diễn đa thể loại như ballad, pop, rock, disco, funk và dân ca.\""
+      "Thế mạnh của Phoenix Band chính là khả năng trình diễn đa thể loại như ballad, pop, rock, disco, funk và dân ca."
     ],
     "closing": "Rất hân hạnh được đồng hành cùng quý đối tác trong thời gian sắp tới!",
     "images": [
@@ -48,7 +60,7 @@
         "Giọng Ải Giọng Ai (Mùa 5 Tập 2)",
         "Một Số Chương Trình Của Nhà Đài VTV"
       ],
-      "videos": [
+      "youtube_videos": [
         {
           "title": "XEM LÊ CÔNG DŨNG SONG CA CÙNG MIU LÊ TẠI \"GIỌNG ẢI GIỌNG AI\"",
           "url": "https://www.youtube.com/watch?v=088cOnjdorI&list=RD088cOnjdorI&start_radio=1"
@@ -61,7 +73,8 @@
           "title": "\"XUÂN XA NHÀ\" BỞI LÊ CÔNG DŨNG",
           "url": "https://www.youtube.com/watch?v=cyMZbggAaAA&list=RDcyMZbggAaAA&start_radio=1"
         }
-      ]
+      ],
+      "total_slides": 4
     },
     {
       "id": 2,
@@ -81,20 +94,21 @@
         "Ca sĩ bí ẩn HTV7 (Mùa 6 tập 1)",
         "Sàn chiến giọng hát VTV3 (Mùa 5 tập 9)"
       ],
-      "videos": [
+      "youtube_videos": [
         {
           "title": "\"XUÂN 26\" COVER BỞI THẢO PHẠM",
-          "url": "#"
+          "url": "https://www.youtube.com/watch?v=jb-GgMY4HTs&list=RDjb-GgMY4HTs&start_radio=1"
         },
         {
           "title": "\"MỘT MÌNH\" BỞI THẢO PHẠM",
-          "url": "#"
+          "url": "https://www.youtube.com/watch?v=hJ17n8V96h8&list=RDhJ17n8V96h8&start_radio=1"
         },
         {
           "title": "\"KHÓC BẠN TRĂM NĂM\" BỞI THẢO PHẠM",
-          "url": "#"
+          "url": "https://www.youtube.com/watch?v=u5RDhzLaTGo&list=RDu5RDhzLaTGo&start_radio=1"
         }
-      ]
+      ],
+      "total_slides": 4
     },
     {
       "id": 3,
@@ -112,7 +126,7 @@
     {
       "id": 4,
       "name": "HẢI LONG",
-      "role": "DRUMMER",
+      "role": "GUITARIST",
       "image": "./public/img/band/member/member4.jpg",
       "description": "Là một cá nhân bùng nổ với những bản Pop, Rock, Ballad mang nhịp trống mạnh mẽ sôi động, khuấy động sân khấu; đồng thời lắng lại thật ngọt ngào trong những bản ballad tình ca đầy cảm xúc."
     },
@@ -200,6 +214,10 @@
     ],
     "other_events_title": "CÁC SỰ KIỆN KHÁC",
     "other_events_images": [
+      "./public/img/event/1.jpg",
+      "./public/img/event/2.jpg",
+      "./public/img/event/3.jpg",
+      "./public/img/event/4.jpg",
       "./public/img/event/5.jpg",
       "./public/img/event/6.jpg",
       "./public/img/event/7.jpg",
@@ -210,45 +228,55 @@
   },
   "performance_videos": {
     "title": "CÁC VIDEOS BIỂU DIỄN",
-    "videos": [
+    "youtube_videos": [
       {
         "id": 1,
-        "youtube_embed_url": "https://www.youtube.com/embed/17ltfefbnZo"
+        "title": "Tội Cho Em - Hà Nhi | Thảo Phạm ( Cover ) | Phoenix Band",
+        "embed_url": "https://www.youtube.com/embed/17ltfefbnZo"
       },
       {
         "id": 2,
-        "youtube_embed_url": "https://www.youtube.com/embed/ExH9UQAr4KM"
+        "title": "Phép Màu (Đàn Cá Gỗ OST) - Mounter x MAYDAYs, Minh Tốc | Công Dũng x Ninh Trần Cover | Phoenix Band",
+        "embed_url": "https://www.youtube.com/embed/ExH9UQAr4KM?autoplay=1"
       },
       {
         "id": 3,
-        "youtube_embed_url": "https://www.youtube.com/embed/NgOCa3RKKVU"
+        "title": "ÔM EM ĐƯỢC KHÔNG | THẢO PHẠM (Cover) cực cảm xúc cùng PHOENIX BAND | DU MIÊN LE LA Live #2",
+        "embed_url": "https://www.youtube.com/embed/NgOCa3RKKVU?autoplay=1"
       },
       {
         "id": 4,
-        "youtube_embed_url": "https://www.youtube.com/embed/l1XDVwYHuhI"
+        "title": "Tay Trái Chỉ Trăng - Công Dũng ( cover ) | Du Miên Lê La | Phoenix Band",
+        "embed_url": "https://www.youtube.com/embed/l1XDVwYHuhI?autoplay=1"
       },
       {
         "id": 5,
-        "youtube_embed_url": "https://www.youtube.com/embed/9ZO1-03hcnc"
+        "title": "ĐI GIỮA TRỜI RỰC RỠ | CÔNG DŨNG (Cover) | PHOENIX BAND | DU MIÊN LÊ LA Live #3 #livemusic #music",
+        "embed_url": "https://www.youtube.com/embed/9ZO1-03hcnc?autoplay=1"
       },
       {
         "id": 6,
-        "youtube_embed_url": "https://www.youtube.com/embed/GLn_cSgpC40"
+        "title": "MASHUP ( NGÀY MAI NGƯỜI TA LẤY CHÔNG - AI CHUNG TÌNH ĐƯỢC MÃI ) - LÊ CÔNG DŨNG | PHOENIX BAND",
+        "embed_url": "https://www.youtube.com/embed/GLn_cSgpC40?autoplay=1"
       }
     ]
   },
   "navigation": [
     {
       "label": "ABOUT",
-      "anchor": "#intro"
+      "anchor": "#divider-intro"
     },
     {
       "label": "MEMBER",
-      "anchor": "#members"
+      "anchor": "#divider-members"
     },
     {
       "label": "EVENT",
-      "anchor": "#events"
+      "anchor": "#divider-events"
+    },
+    {
+       "label": "CONTACT",
+       "anchor": "#divider-contact"
     }
   ],
   "footer": {

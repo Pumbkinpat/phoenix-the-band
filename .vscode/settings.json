@@ -1,11 +1,13 @@
 {
   "files.associations": {
-    "*.html": "html"
+    "*.html": "html",
+    "*.svg": "html"
   },
   "tailwindCSS.includeLanguages": {
     "html": "html",
     "plaintext": "html",
-    "templ": "html"
+    "templ": "html",
+    "svg": "html"
   },
   "tailwindCSS.experimental.configFile": "./tailwind.config.js",
   "editor.quickSuggestions": { "strings": true }

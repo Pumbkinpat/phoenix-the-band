@@ -1,20 +1,40 @@
 package components
 
 import (
-    "example.com/phoenix-the-band/internal/model"
+    "github.com/phoenix-the-band/internal/model"
 )
 
-templ Navbar(bandName string, navItems []model.NavItem) {
-    <!-- Navbar Component -->
+templ Navbar(bandName string, data model.BandData) {
+	<!-- Navbar Component -->
 
-    <div class="fixed top-0 left-0 right-0 target:backdrop-blur-xl target:bg-black/35 z-20 bg-black text-white py-4">
-        <div class="px-6 flex justify-between items-center">
-            <div class="text-2xl font-bold uppercase">{ bandName } BAND</div>
-            <div class="space-x-8 text-sm">                
-                for _, item := range navItems {
-                    <a href={ templ.URL(item.Anchor) } class="hover:text-orange-400">{ item.Label }</a>
-                }
-            </div>
-        </div>
-    </div>
+	<nav id="navbar" class="z-20">
+		<!-- Sidebar -->
+		<div class="fixed left-0 top-0 h-full bg-base-200 flex flex-col items-center py-8 justify-between shadow-lg">
+
+			<!-- TOP: Logo -->
+			<a href={ templ.URL("http://localhost:3000") } class="flex flex-col items-center">
+				// <img src="/static/logo.png" class="w-12 h-12 object-contain" />
+				<span class="text-lg font-bold tracking-wide">PHOENIX</span>
+			</a>
+
+			<!-- MIDDLE: Navigation text -->
+			<nav class="flex flex-col items-center gap-16">
+				for _, navItem := range data.Navigation {
+					<a href={ templ.URL(navItem.Anchor) } class="rotate-[-90deg] tracking-widest text-sm opacity-70 hover:opacity-100 transition">
+						{ navItem.Label }
+					</a>
+				}
+			</nav>
+
+			<!-- BOTTOM: Social Icons -->
+			<div class="flex flex-col items-center space-y-4">
+				for _,item := range data.Band.SocialLinks {
+          <a href={ templ.URL(item.SocialLinkURL) } target="_blank" class="btn btn-circle btn-sm">
+            @Icon(item.Platform, "inline","text-base", "fill-current", "w-auto", "h-6")
+          </a>
+        }
+			</div>
+
+		</div>
+	</nav>
 }

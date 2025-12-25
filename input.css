@@ -1,13 +1,34 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities; 
-
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@source not "./tailwindcss";
+@source not "./daisyui{,*}.mjs";
 
-:root {
-  font-family: "Lato", sans-serif;
+@plugin "./daisyUI/daisyui.mjs" { /* make sure to match the path of daisyui mjs files */
+  themes: light --default, dark --prefersdark;
+  root: ":root";
+  exclude: rootscrollgutter, rootcolor;
+  logs: true;
 }
 
-.container { max-width: 1280px; }
+/* Members section styles */
+.pinned-container {
+  @apply relative overflow-hidden max-w-5xl h-[70vh] m-auto;
+}
+
+.members-scroll-wrapper {
+  @apply absolute top-0 left-0 right-0 h-full -z-10;
+}
+
+.member-slide {
+  @apply h-[70vh];
+}
+
+/* Partners section styles */
+@keyframes infinite-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll linear infinite;
+}

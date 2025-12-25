@@ -1,22 +1,24 @@
 package layouts
 
 import (
-	"example.com/phoenix-the-band/internal/model"
-	"example.com/phoenix-the-band/internal/templates/pages"
+	"github.com/phoenix-the-band/internal/model"
 )
 
-templ BaseLayout(data *model.BandData) {
+templ BaseLayout(data model.BandData) {
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<title>PHOENIX BAND</title>
-		<link rel="stylesheet" href="css/output.css">
+		<link rel="icon" href="./public/icon/phoenix-favicon.svg" type="image/x-icon">
+		<link rel="stylesheet" href="./static/css/output.css">
 	</head>
 
 	<body class="scroll-mt-16">
-
-	@pages.HomePage(*data) 
+		{ children... }
 		
+		// Import gsap animation file, check correct path
+		<script src="./static/js/gsap/gsap.min.js"></script>
+		<script src="./static/js/gsap/ScrollTrigger.min.js"></script>
 	</body>
 </html>
 }

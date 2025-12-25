@@ -1,0 +1,74 @@
+package components
+
+import (
+	"fmt"
+	"strings"
+
+	"github.com/phoenix-the-band/internal/model"
+)
+
+templ MainMember(data model.Member) {
+	<div class="member-slide">
+		<div class="w-full max-w-4xl p-3">
+			<div class="grid md:grid-cols-5 gap-6 items-center">
+			
+				<!-- LEFT: Member Avatar -->
+				<div class="md:col-span-2">
+					<img src={ templ.URL(data.Image) } alt={ data.Name } class="w-full h-80 object-cover rounded-2xl shadow-2xl">
+				</div>
+
+				<!-- RIGHT: Member info -->
+				<div class="md:col-span-3 space-y-4">
+
+					<!-- TOP: Description -->
+					<h2 class="text-4xl font-bold bg-gradient-to-r from-red-400 to-purple-700-400 bg-clip-text text-transparent">{ data.Name }</h2>
+					<p class="text-xl text-purple-300">{ data.Role }</p>
+					<p class="">{ fmt.Sprintf("Đã tốt nghiệp tại %s", data.Education.School) }</p>
+
+					<div class="space-y-2 text-sm">
+						<div class="flex items-center gap-2">
+							<span class="text-gray-400 font-semibold">Major:</span>
+							<span class="text-white">{ strings.Join(data.Education.Majors, ", ") }</span>
+						</div>
+
+						if len(data.Education.Genres) > 0 {
+							<div class="flex items-center gap-2">
+								<span class="text-gray-400 font-semibold">Genres:</span>
+								<span class="text-white">{ strings.Join(data.Education.Genres, ", ") }</span>
+							</div>
+						}
+					</div>
+						
+					<p class="text-gray-300 text-sm leading-relaxed">{ data.Description }</p>
+					<p class="text-gray-300 text-sm leading-relaxed">{ data.SpecialSkill }</p>
+					
+					<!-- MIDDLE: TV Shows -->
+					if len(data.TVShows) > 0 {
+						<div>
+							<h3 class="text-xs font-bold text-purple-400 mb-2 uppercase tracking-wide">TV Appearances</h3>
+							<div class="flex flex-wrap gap-2">
+								for _, show := range data.TVShows {
+									<span class="bg-purple-700/50 px-3 py-1 rounded-full text-xs">{ show }</span>
+								}
+							</div>
+						</div>
+					}
+
+					<!-- BOTTOM: Youtube Videos -->	
+					if len(data.YoutubeVideos) > 0 {
+						<div>
+							<h3 class="text-xs font-bold text-purple-400 mb-2 uppercase tracking-wide">YouTube</h3>
+							<div class="space-y-1">
+								for _, video := range data.YoutubeVideos {
+									<a href="#" class="block bg-red-600/30 hover:bg-red-600/50 px-3 py-2 rounded-lg transition text-xs">
+										{ video.Title }
+									</a>
+								}
+							</div>
+						</div>
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+}

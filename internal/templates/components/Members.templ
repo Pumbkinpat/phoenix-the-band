@@ -1,0 +1,33 @@
+package components
+
+import (
+
+	"github.com/phoenix-the-band/internal/model"
+)
+
+templ Members(data model.BandData) {
+
+  <!-- Pinned Scrollable Member Section -->
+  <div class="pinned-container h-screen overflow-hidden" id="pinnedContainer">
+    <div class="h-full relative flex items-center justify-center">
+      <div class="members-scroll-wrapper w-full" id="membersWrapper">
+        for _, member := range data.Members[0:3] {
+          <!-- Main Member -->
+          <div class="member-slide h-screen w-full flex items-center justify-center">
+            @MainMember(member)
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!-- Other Members Section -->
+  <div class="container mx-auto px-4 py-20">
+    <div class="grid md:grid-cols-3 gap-4">
+      for _, member := range data.Members[3:6] {
+        <!--Supporting Member -->
+        @SupportingMember(member)
+      }
+    </div>
+  </div>
+}
