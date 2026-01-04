@@ -18,7 +18,7 @@ templ HomePage(data *model.BandData ) {
         <!-- Header -->
 
         <!-- Hero -->
-        <div class="hero z-15">
+        <section id="hero" class="hero z-15">
           <img src="/public/img/band/group-photo1.jpg" class="bg-black/15 w-full object-cover"/>
 
           <div class="relative w-[80%] h-[80vh] mx-auto border-[3px] border-white">
@@ -45,10 +45,11 @@ templ HomePage(data *model.BandData ) {
             <img src="./public/icon/arrow-down.png" class="absolute left-[50%] bottom-2 w-[48px] h-[48px] translate-x-[-50%] object-cover"/>
             
           </div>
-        </div>
+        </section>
 
         <!-- Intro Section -->
-        <div id="intro">
+        <section id="intro">
+          <!-- Divider -->
           @components.Divider("intro", "ABOUT US", "OUR STORY")
 
           <div class="text-xl text-justify p-6 md:py-6 md:px-20 lg:px-44 xl:px-[22%]">
@@ -87,28 +88,33 @@ templ HomePage(data *model.BandData ) {
               <p class="">{ data.Intro.Closing }</p>
             </div>
           </div>
-        </div>
+        </section>
         
         <!-- Members Section -->
-        <div id="members">
+        <section id="members">
+          <!-- Divider -->
           @components.Divider("members", "MEMBERS", "MEET THE BAND")
 
           @components.Members(*data)
-        </div>
+        </section>
 
         <!-- Partners Section -->
-        <div id="partners">
+        <section id="partners">
+          <!-- Divider -->
           @components.Divider("partners", "PARTNERS", "FEATURED BRANDS")
         
+          <!-- Infinite Carousel -->
           @components.InfiniteCarousel(data.Partners.Logos[0:9], 25)
           @components.InfiniteCarousel(data.Partners.Logos[9:17], 38)
           @components.InfiniteCarousel(data.Partners.Logos[17:24], 30)
-        </div>
+        </section>
 
         <!-- Events Section -->
-        <div id="events" class="">
+        <section id="events" class="">
+          <!-- Divider -->
           @components.Divider("events", "EVENTS GALLERY", "BEHIND THE SCENES")
 
+          <!-- Masonry Image Gallery -->
           <div class="columns-2 md:columns-3 gap-4 p-6 md:py-6 md:px-20 lg:px-44 xl:px-[22%]">
             for  _, imageURL := range data.Events.OtherEventsImages {
               <div class="mb-4 break-inside-avoid">
@@ -116,7 +122,7 @@ templ HomePage(data *model.BandData ) {
               </div>
             }
           </div>
-        </div>
+        </section>
 
         <!-- Performance section -->
         @components.Divider("performance-videos", "PERFORMACE VIDEOS", "LISTEN & WATCH")
@@ -135,7 +141,7 @@ templ HomePage(data *model.BandData ) {
           </div>
         </div> */
         
-        <div id="contact" class="flex flex-col place-items-center h-screen pb-8 px-8">
+        <section id="contact" class="flex flex-col place-items-center h-screen pb-8 px-8">
           @components.Divider("contact", "CONTACT US", "SEND US A MESSAGE")
 
           <fieldset class="fieldset bg-base-200 border-base-300 rounded-box border w-lg p-4">
@@ -195,7 +201,7 @@ templ HomePage(data *model.BandData ) {
 
             <button class="btn btn-neutral mt-4">Send</button>
           </fieldset>
-        </div>
+        </section>
       </div>
 
       <!-- Footer section -->
@@ -204,31 +210,4 @@ templ HomePage(data *model.BandData ) {
       </div>
     </div>
   }
-
-  <script defer>
-    gsap.registerPlugin(ScrollTrigger);
-
-    const wrapper = document.getElementById('membersWrapper');
-    const slides = gsap.utils.toArray('.member-slide');
-    const container = document.getElementById('pinnedContainer');
-
-    // Logic: Move the wrapper up by (Number of Slides - 1) * 100%
-    // We trigger when the divider hits the top of the viewport
-
-
-    gsap.to(wrapper, {
-      yPercent: -(100 * (slides.length - 1)),
-      ease: "none",
-      delay: 1,
-      scrollTrigger: {
-        trigger: "#divider-members", // Trigger starts when this hits the top
-        start: "top top", 
-        end: "+=300%",               // How long the user has to scroll
-        pin: "#members",             // Pin the parent section
-        scrub: 1,
-        anticipatePin: 1,
-        markers: false               // Set to true for debugging
-      }
-    });
-  </script>
 }
