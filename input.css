@@ -10,19 +10,6 @@
   logs: true;
 }
 
-/* Members section styles */
-.pinned-container {
-  @apply relative overflow-hidden max-w-5xl h-[70vh] m-auto;
-}
-
-.members-scroll-wrapper {
-  @apply absolute top-0 left-0 right-0 h-full -z-10;
-}
-
-.member-slide {
-  @apply h-[70vh];
-}
-
 /* Partners section styles */
 @keyframes infinite-scroll {
   0% { transform: translateX(0); }

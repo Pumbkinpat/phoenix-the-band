@@ -49,6 +49,7 @@ templ HomePage(data *model.BandData ) {
 
         <!-- Intro Section -->
         <div id="intro">
+          <!-- Divider -->
           @components.Divider("intro", "ABOUT US", "OUR STORY")
 
           <div class="text-xl text-justify p-6 md:py-6 md:px-20 lg:px-44 xl:px-[22%]">
@@ -91,6 +92,7 @@ templ HomePage(data *model.BandData ) {
         
         <!-- Members Section -->
         <div id="members">
+          <!-- Divider -->
           @components.Divider("members", "MEMBERS", "MEET THE BAND")
 
           @components.Members(*data)
@@ -98,8 +100,10 @@ templ HomePage(data *model.BandData ) {
 
         <!-- Partners Section -->
         <div id="partners">
+          <!-- Divider -->
           @components.Divider("partners", "PARTNERS", "FEATURED BRANDS")
         
+          <!-- Infinite Carousel -->
           @components.InfiniteCarousel(data.Partners.Logos[0:9], 25)
           @components.InfiniteCarousel(data.Partners.Logos[9:17], 38)
           @components.InfiniteCarousel(data.Partners.Logos[17:24], 30)
@@ -107,8 +111,10 @@ templ HomePage(data *model.BandData ) {
 
         <!-- Events Section -->
         <div id="events" class="">
+          <!-- Divider -->
           @components.Divider("events", "EVENTS GALLERY", "BEHIND THE SCENES")
 
+          <!-- Masonry Image Gallery -->
           <div class="columns-2 md:columns-3 gap-4 p-6 md:py-6 md:px-20 lg:px-44 xl:px-[22%]">
             for  _, imageURL := range data.Events.OtherEventsImages {
               <div class="mb-4 break-inside-avoid">
@@ -204,31 +210,4 @@ templ HomePage(data *model.BandData ) {
       </div>
     </div>
   }
-
-  <script defer>
-    gsap.registerPlugin(ScrollTrigger);
-
-    const wrapper = document.getElementById('membersWrapper');
-    const slides = gsap.utils.toArray('.member-slide');
-    const container = document.getElementById('pinnedContainer');
-
-    // Logic: Move the wrapper up by (Number of Slides - 1) * 100%
-    // We trigger when the divider hits the top of the viewport
-
-
-    gsap.to(wrapper, {
-      yPercent: -(100 * (slides.length - 1)),
-      ease: "none",
-      delay: 1,
-      scrollTrigger: {
-        trigger: "#divider-members", // Trigger starts when this hits the top
-        start: "top top", 
-        end: "+=300%",               // How long the user has to scroll
-        pin: "#members",             // Pin the parent section
-        scrub: 1,
-        anticipatePin: 1,
-        markers: false               // Set to true for debugging
-      }
-    });
-  </script>
 }

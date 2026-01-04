@@ -8,17 +8,11 @@ import (
 templ Members(data model.BandData) {
 
   <!-- Pinned Scrollable Member Section -->
-  <div class="pinned-container h-screen overflow-hidden" id="pinnedContainer">
-    <div class="h-full relative flex items-center justify-center">
-      <div class="members-scroll-wrapper w-full" id="membersWrapper">
-        for _, member := range data.Members[0:3] {
-          <!-- Main Member -->
-          <div class="member-slide h-screen w-full flex items-center justify-center">
-            @MainMember(member)
-          </div>
-        }
-      </div>
-    </div>
+  <div id="stack-container" class="relative pb-20">
+    for _, member := range data.Members[0:3] {
+      <!-- Main Member -->
+      @MainMember(member)
+    } 
   </div>
 
   <!-- Other Members Section -->
@@ -30,4 +24,29 @@ templ Members(data model.BandData) {
       }
     </div>
   </div>
+
+  <script defer>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Select all card inner elements
+    const cards = gsap.utils.toArray(".member-card > .inner-member-card");
+
+    cards.forEach((card, i) => {
+      // We only want to animate cards that have something coming over them
+      if (i < cards.length - 1) {
+        gsap.to(card, {
+          scale: 0.9, // Slightly shrink the card as it goes behind
+          opacity: 0.5,
+          scrollTrigger: {
+            trigger: card,
+            start: "top top", // When the card hits the top
+            endTrigger: "#stack-container",
+            end: "bottom bottom",
+            scrub: true,
+            pin: false,
+          }
+        });
+      }
+    });
+  </script>
 }
